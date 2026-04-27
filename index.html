@@ -1,0 +1,623 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1" />
+    <title>Michele Souza Cezar - Tutoriais SoftExpert</title>
+    <meta name="description" content="Tutoriais profissionais sobre licenciamento, créditos do Copilot e processos de down-upgrade/upgrade." />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet" />
+    
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #ffffff;
+            color: #1F2937;
+            line-height: 1.6;
+        }
+
+        h1, h2, h3, h4, h5, h6 {
+            font-family: 'Poppins', sans-serif;
+            font-weight: 700;
+        }
+
+        .container {
+            width: 100%;
+            margin-left: auto;
+            margin-right: auto;
+            padding-left: 1rem;
+            padding-right: 1rem;
+        }
+
+        @media (min-width: 640px) {
+            .container {
+                padding-left: 1.5rem;
+                padding-right: 1.5rem;
+            }
+        }
+
+        @media (min-width: 1024px) {
+            .container {
+                padding-left: 2rem;
+                padding-right: 2rem;
+                max-width: 1280px;
+            }
+        }
+
+        /* Header */
+        header {
+            border-bottom: 1px solid #f3f4f6;
+            position: sticky;
+            top: 0;
+            background-color: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(4px);
+            z-index: 50;
+        }
+
+        header .container {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding-top: 1rem;
+            padding-bottom: 1rem;
+        }
+
+        .logo-section {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+        }
+
+        .logo-box {
+            width: 2.5rem;
+            height: 2.5rem;
+            background-color: #003D7A;
+            border-radius: 0.5rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: bold;
+            font-size: 1.125rem;
+        }
+
+        .logo-text h1 {
+            font-size: 0.875rem;
+            font-weight: 600;
+            color: #003D7A;
+            margin: 0;
+        }
+
+        .logo-text p {
+            font-size: 0.75rem;
+            color: #6B7280;
+            margin: 0;
+        }
+
+        header a {
+            font-size: 0.875rem;
+            color: #6B7280;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        header a:hover {
+            color: #003D7A;
+        }
+
+        /* Hero Section */
+        .hero {
+            padding-top: 4rem;
+            padding-bottom: 6rem;
+            animation: fadeIn 1s ease-out;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+            to {
+                opacity: 1;
+            }
+        }
+
+        .hero-content {
+            max-width: 48rem;
+        }
+
+        .badge {
+            display: inline-block;
+            padding: 0.25rem 0.75rem;
+            background-color: rgba(255, 165, 0, 0.1);
+            color: #FFA500;
+            font-size: 0.75rem;
+            font-weight: 600;
+            border-radius: 9999px;
+            margin-bottom: 1.5rem;
+        }
+
+        .hero h1 {
+            font-size: 2.25rem;
+            color: #003D7A;
+            margin-bottom: 1.5rem;
+            line-height: 1.2;
+        }
+
+        @media (min-width: 768px) {
+            .hero h1 {
+                font-size: 3rem;
+            }
+        }
+
+        .hero p {
+            font-size: 1.125rem;
+            color: #6B7280;
+            margin-bottom: 2rem;
+            line-height: 1.75;
+        }
+
+        /* Bio Card */
+        .bio-card {
+            background: linear-gradient(to right, rgba(0, 61, 122, 0.05), rgba(255, 165, 0, 0.05));
+            border: 1px solid rgba(0, 61, 122, 0.1);
+            border-radius: 0.5rem;
+            padding: 1.5rem;
+            margin-bottom: 3rem;
+        }
+
+        .bio-card p:first-child {
+            font-size: 0.875rem;
+            font-weight: 600;
+            color: #003D7A;
+            margin-bottom: 0.5rem;
+        }
+
+        .bio-card h2 {
+            font-size: 1.5rem;
+            color: #003D7A;
+            margin-bottom: 0.5rem;
+        }
+
+        .bio-card p:last-child {
+            color: #6B7280;
+        }
+
+        /* Divider */
+        .divider {
+            height: 1px;
+            background: linear-gradient(to right, rgba(0, 61, 122, 0), rgba(0, 61, 122, 0.2), rgba(0, 61, 122, 0));
+            margin-bottom: 4rem;
+        }
+
+        /* Tutorials Section */
+        .tutorials-section {
+            padding-top: 4rem;
+            padding-bottom: 6rem;
+        }
+
+        .section-header {
+            margin-bottom: 3rem;
+        }
+
+        .section-header h2 {
+            font-size: 1.875rem;
+            color: #003D7A;
+            margin-bottom: 1rem;
+        }
+
+        @media (min-width: 768px) {
+            .section-header h2 {
+                font-size: 2.25rem;
+            }
+        }
+
+        .section-header p {
+            color: #6B7280;
+        }
+
+        .tutorials-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 2rem;
+            margin-bottom: 0;
+        }
+
+        @media (min-width: 768px) {
+            .tutorials-grid {
+                grid-template-columns: repeat(3, 1fr);
+            }
+        }
+
+        .tutorial-card {
+            background-color: #f9fafb;
+            border: 1px solid #f3f4f6;
+            border-radius: 0.5rem;
+            padding: 2rem;
+            display: flex;
+            flex-direction: column;
+            height: 100%;
+            transition: all 0.3s ease;
+            animation: slideUp 0.7s ease-out backwards;
+        }
+
+        .tutorial-card:nth-child(1) {
+            animation-delay: 0ms;
+        }
+
+        .tutorial-card:nth-child(2) {
+            animation-delay: 100ms;
+        }
+
+        .tutorial-card:nth-child(3) {
+            animation-delay: 200ms;
+        }
+
+        @keyframes slideUp {
+            from {
+                opacity: 0;
+                transform: translateY(1rem);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .tutorial-card:hover {
+            border-color: rgba(0, 61, 122, 0.2);
+            box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.1);
+        }
+
+        .icon-container {
+            width: 3.5rem;
+            height: 3.5rem;
+            background-color: rgba(0, 61, 122, 0.1);
+            border-radius: 0.5rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #003D7A;
+            margin-bottom: 1.5rem;
+            transition: all 0.3s ease;
+        }
+
+        .tutorial-card:hover .icon-container {
+            background-color: #003D7A;
+            color: white;
+        }
+
+        .icon-container svg {
+            width: 2rem;
+            height: 2rem;
+        }
+
+        .tutorial-card h3 {
+            font-size: 1.25rem;
+            color: #003D7A;
+            margin-bottom: 0.75rem;
+            line-height: 1.4;
+        }
+
+        .tutorial-card p {
+            font-size: 0.875rem;
+            color: #6B7280;
+            margin-bottom: 1.5rem;
+            flex-grow: 1;
+            line-height: 1.6;
+        }
+
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.5rem;
+            width: 100%;
+            padding: 0.75rem 2rem;
+            background-color: #003D7A;
+            color: white;
+            font-weight: 600;
+            border: none;
+            border-radius: 0.5rem;
+            cursor: pointer;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            font-size: 0.875rem;
+        }
+
+        .btn:hover {
+            background-color: #002D5A;
+        }
+
+        .btn svg {
+            width: 1rem;
+            height: 1rem;
+            transition: transform 0.3s ease;
+        }
+
+        .btn:hover svg {
+            transform: translateX(0.25rem);
+        }
+
+        .accent-line {
+            height: 4px;
+            background: linear-gradient(to right, #003D7A, #FFA500);
+            margin-top: 1rem;
+            transform: scaleX(0);
+            transform-origin: left;
+            transition: transform 0.3s ease;
+        }
+
+        .tutorial-card:hover .accent-line {
+            transform: scaleX(1);
+        }
+
+        /* CTA Section */
+        .cta-section {
+            background-color: #003D7A;
+            color: white;
+            padding-top: 4rem;
+            padding-bottom: 5rem;
+        }
+
+        .cta-section .container {
+            text-align: center;
+        }
+
+        .cta-section h2 {
+            font-size: 1.875rem;
+            margin-bottom: 1rem;
+        }
+
+        @media (min-width: 768px) {
+            .cta-section h2 {
+                font-size: 2.25rem;
+            }
+        }
+
+        .cta-section p {
+            color: rgba(255, 255, 255, 0.7);
+            margin-bottom: 2rem;
+            max-width: 42rem;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .btn-cta {
+            background-color: #FFA500;
+            color: #003D7A;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.75rem 2rem;
+            border: none;
+            border-radius: 0.5rem;
+            font-weight: 600;
+            cursor: pointer;
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+
+        .btn-cta:hover {
+            background-color: #FF9500;
+        }
+
+        .btn-cta svg {
+            width: 1rem;
+            height: 1rem;
+        }
+
+        /* Footer */
+        footer {
+            background-color: #f9fafb;
+            border-top: 1px solid #f3f4f6;
+            padding-top: 3rem;
+            padding-bottom: 3rem;
+        }
+
+        footer .container {
+            display: flex;
+            flex-direction: column;
+            gap: 2rem;
+        }
+
+        @media (min-width: 768px) {
+            footer .container {
+                flex-direction: row;
+                justify-content: space-between;
+                align-items: center;
+            }
+        }
+
+        footer p {
+            font-size: 0.875rem;
+            color: #6B7280;
+        }
+
+        .footer-links {
+            display: flex;
+            gap: 1.5rem;
+        }
+
+        .footer-links a {
+            font-size: 0.875rem;
+            color: #6B7280;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .footer-links a:hover {
+            color: #003D7A;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .hero {
+                padding-top: 2rem;
+                padding-bottom: 3rem;
+            }
+
+            .hero h1 {
+                font-size: 1.875rem;
+            }
+
+            .tutorials-section {
+                padding-top: 2rem;
+                padding-bottom: 3rem;
+            }
+
+            .section-header h2 {
+                font-size: 1.5rem;
+            }
+
+            .cta-section {
+                padding-top: 2rem;
+                padding-bottom: 2.5rem;
+            }
+
+            .cta-section h2 {
+                font-size: 1.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="container">
+            <div class="logo-section">
+                <div class="logo-box">SE</div>
+                <div class="logo-text">
+                    <h1>SoftExpert</h1>
+                    <p>Tutoriais</p>
+                </div>
+            </div>
+            <a href="https://www.softexpert.com" target="_blank" rel="noopener noreferrer">softexpert.com</a>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container">
+            <div class="hero-content">
+                <span class="badge">Tutoriais Profissionais</span>
+                <h1>Guias Completos para Licenciamento SoftExpert</h1>
+                <p>Explore tutoriais detalhados sobre licenciamento, créditos de IA e processos de atualização de contratos. Desenvolvidos para facilitar sua jornada com a plataforma SoftExpert.</p>
+
+                <div class="bio-card">
+                    <p>Desenvolvido por</p>
+                    <h2>Michele Souza Cezar</h2>
+                    <p>Sales Operations Specialist | SoftExpert</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Divider -->
+    <div class="container">
+        <div class="divider"></div>
+    </div>
+
+    <!-- Tutorials Section -->
+    <section class="tutorials-section">
+        <div class="container">
+            <div class="section-header">
+                <h2>Tutoriais Disponíveis</h2>
+                <p>Acesse os guias completos e aprenda passo a passo</p>
+            </div>
+
+            <div class="tutorials-grid">
+                <!-- Card 1 -->
+                <div class="tutorial-card">
+                    <div class="icon-container">
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6.253v13m0-13C6.5 6.253 2 10.998 2 17s4.5 10.747 10 10.747c5.5 0 10-4.998 10-10.747S17.5 6.253 12 6.253z" />
+                        </svg>
+                    </div>
+                    <h3>Guia de Licenciamento & Contratos</h3>
+                    <p>Dicionário completo de regras, processos e combinações de licenças SoftExpert.</p>
+                    <a href="https://michelessouzac.github.io/guia-licenciamento/" target="_blank" rel="noopener noreferrer" class="btn">
+                        <span>Acessar Tutorial</span>
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+                        </svg>
+                    </a>
+                    <div class="accent-line"></div>
+                </div>
+
+                <!-- Card 2 -->
+                <div class="tutorial-card">
+                    <div class="icon-container">
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z" />
+                        </svg>
+                    </div>
+                    <h3>Ativação SE Copilot</h3>
+                    <p>Guia passo a passo para configurar créditos de IA e ativar licenças temporárias.</p>
+                    <a href="https://michelessouzac.github.io/copilot-creditos/" target="_blank" rel="noopener noreferrer" class="btn">
+                        <span>Acessar Tutorial</span>
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+                        </svg>
+                    </a>
+                    <div class="accent-line"></div>
+                </div>
+
+                <!-- Card 3 -->
+                <div class="tutorial-card">
+                    <div class="icon-container">
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z" />
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
+                        </svg>
+                    </div>
+                    <h3>Processos de Licenças</h3>
+                    <p>Instruções completas para licenças temporárias, downgrade e upgrade de contratos.</p>
+                    <a href="https://michelessouzac.github.io/down-upgrade/" target="_blank" rel="noopener noreferrer" class="btn">
+                        <span>Acessar Tutorial</span>
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+                        </svg>
+                    </a>
+                    <div class="accent-line"></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="cta-section">
+        <div class="container">
+            <h2>Dúvidas ou Sugestões?</h2>
+            <p>Estes tutoriais foram desenvolvidos para facilitar sua experiência. Se tiver alguma dúvida ou sugestão de melhoria, entre em contato.</p>
+            <a href="mailto:mcezar@softexpert.com" class="btn-cta">
+                <span>Enviar Mensagem</span>
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+                </svg>
+            </a>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <p>© 2026 Michele Souza Cezar | Sales Operations SoftExpert</p>
+            <div class="footer-links">
+                <a href="https://www.softexpert.com" target="_blank" rel="noopener noreferrer">SoftExpert</a>
+                <a href="https://github.com/michelessouzac" target="_blank" rel="noopener noreferrer">GitHub</a>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>
