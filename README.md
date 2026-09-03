@@ -42,9 +42,9 @@ landing-page-html/
 
 ## 🎯 Links dos Tutoriais
 
-1. **Guia de Licenciamento & Contratos**: https://michelessouzac.github.io/guia-licenciamento/
-2. **Ativação SE Copilot**: https://michelessouzac.github.io/copilot-creditos/
-3. **Processos de Licenças**: https://michelessouzac.github.io/down-upgrade/
+1. **Guia de Licenciamento & Contratos**: https://michelesouzatech.github.io/guia-licenciamento/
+2. **Ativação SE Copilot**: https://michelesouzatech.github.io/copilot-creditos/
+3. **Processos de Licenças**: https://michelesouzatech.github.io/down-upgrade/
 
 ## 💌 Contato
 
